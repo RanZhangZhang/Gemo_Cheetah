@@ -61,7 +61,7 @@ void geom_trunc() {
     // std::cout << "truncate " << "signed" << " " << bwA << " bits ints ";
     // std::cout <<  "shift by " << shift << " bits. Sent " << ((c1 - c0) * 8 / dim) << " bits\n";
     
-    // test correctness
+    //-------------------------- Check correctness ---------------------------
     // if (party == SERVER) {
     //     int count = 0;
     //     uint64_t *inA_bob = new uint64_t[dim];
@@ -86,6 +86,7 @@ void geom_trunc() {
     //     io->send_data(inA, sizeof(uint64_t) * dim);
     //     io->send_data(outB, sizeof(uint64_t) * dim);
     // }
+    //------------------------- Check over --------------------------------
 }
 
 int main(int argc, char **argv) {
