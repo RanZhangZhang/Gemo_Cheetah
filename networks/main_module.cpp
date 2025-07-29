@@ -61,30 +61,31 @@ void geom_trunc() {
     // std::cout << "truncate " << "signed" << " " << bwA << " bits ints ";
     // std::cout <<  "shift by " << shift << " bits. Sent " << ((c1 - c0) * 8 / dim) << " bits\n";
     
-    if (party == SERVER) {
-        int count = 0;
-        uint64_t *inA_bob = new uint64_t[dim];
-        uint64_t *outB_bob = new uint64_t[dim];
-        io->recv_data(inA_bob, sizeof(uint64_t) * dim);
-        io->recv_data(outB_bob, sizeof(uint64_t) * dim);
+    // test correctness
+    // if (party == SERVER) {
+    //     int count = 0;
+    //     uint64_t *inA_bob = new uint64_t[dim];
+    //     uint64_t *outB_bob = new uint64_t[dim];
+    //     io->recv_data(inA_bob, sizeof(uint64_t) * dim);
+    //     io->recv_data(outB_bob, sizeof(uint64_t) * dim);
 
-        for (int i = 0; i < dim; i++) {
-            inA[i] = (inA[i] + inA_bob[i]) & mask_bw;
-            outB[i] = (outB[i] + outB_bob[i]) & mask_bw;
-        }
-        cout << "Testing for correctness..." << endl;
-        for (int i = 0; i < dim; i++) {
-            assert((sci::signed_val(inA[i], bwA) >> shift) == sci::signed_val(outB[i], bwA));
-            if ((sci::signed_val(inA[i], bwA) >> shift) == sci::signed_val(outB[i], bwA)) {
-                count++;
-            }
-        }
-        cout << count << " / " << dim << " Correct!" << endl;
+    //     for (int i = 0; i < dim; i++) {
+    //         inA[i] = (inA[i] + inA_bob[i]) & mask_bw;
+    //         outB[i] = (outB[i] + outB_bob[i]) & mask_bw;
+    //     }
+    //     cout << "Testing for correctness..." << endl;
+    //     for (int i = 0; i < dim; i++) {
+    //         assert((sci::signed_val(inA[i], bwA) >> shift) == sci::signed_val(outB[i], bwA));
+    //         if ((sci::signed_val(inA[i], bwA) >> shift) == sci::signed_val(outB[i], bwA)) {
+    //             count++;
+    //         }
+    //     }
+    //     cout << count << " / " << dim << " Correct!" << endl;
 
-    } else { // CLIENT
-        io->send_data(inA, sizeof(uint64_t) * dim);
-        io->send_data(outB, sizeof(uint64_t) * dim);
-    }
+    // } else { // CLIENT
+    //     io->send_data(inA, sizeof(uint64_t) * dim);
+    //     io->send_data(outB, sizeof(uint64_t) * dim);
+    // }
 }
 
 int main(int argc, char **argv) {
