@@ -39,7 +39,6 @@ void geom_trunc() {
             inA[i] &= mask_bw;
             outB[i] = 0;
         }
-        cout << "Input b: " <<endl;
         uint64_t *bob_input = new uint64_t[dim];
         for (int i = 0; i < dim; i++) {
             bob_input[i] = (inputA[i] - inA[i]) & mask_bw;
@@ -90,7 +89,7 @@ void geom_trunc() {
 
 int main(int argc, char **argv) {
     // default values
-    dim = 1; //相当于size
+    dim = 10000; //相当于size
     bwA = 37; // 相当于l, 环的大小
     shift = 12;
     
