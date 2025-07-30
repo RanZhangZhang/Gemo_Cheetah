@@ -57,6 +57,8 @@ SOFTWARE.
 
 extern sci::NetIO *io;
 extern sci::OTPack<sci::NetIO> *otpack;
+extern int count_trunc;
+extern int count_relu_trunc;
 
 #ifdef SCI_OT
 extern LinearOT *mult;

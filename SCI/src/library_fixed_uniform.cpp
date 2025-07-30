@@ -1607,6 +1607,8 @@ void EndComputation() {
             << " MiB." << std::endl;
   std::cout << "Number of rounds = " << ioArr[0]->num_rounds - num_rounds
             << std::endl;
+  std::cout << "Total truncation = " << count_trunc << std::endl;
+  std::cout << "Total truncation after relu = " << count_relu_trunc << std::endl;
   if (party == SERVER) {
     io->recv_data(&totalCommClient, sizeof(uint64_t));
     std::cout << "Total comm (sent+received) = "

@@ -27,3 +27,5 @@ cmake .. -DCMAKE_BUILD_TYPE=Release -DSCI_BUILD_NETWORKS=ON -DOPENSSL_ROOT_DIR=/
 #      make ${net}-SCI_HE -j4 
 # done
 make module-cheetah -j8
+make resnet50-cheetah -j8
+make densenet121-cheetah -j8

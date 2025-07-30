@@ -23,6 +23,8 @@ SOFTWARE.
 
 sci::NetIO *io;
 sci::OTPack<sci::NetIO> *otpack;
+int count_trunc = 0;
+int count_relu_trunc = 0;
 
 #ifdef SCI_OT
 LinearOT *mult;
